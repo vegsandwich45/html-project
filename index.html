@@ -1,0 +1,288 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2685.4">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 24.0px Times; -webkit-text-stroke: #000000}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 24.0px Times; -webkit-text-stroke: #000000; min-height: 29.0px}
+    span.s1 {font-kerning: none}
+  </style>
+</head>
+<body>
+<p class="p1"><span class="s1"># Binomial Distribution</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">n=4</span></p>
+<p class="p1"><span class="s1">p=0.02</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">dbinom(2,n,p)</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">sum(dbinom(2:4,n,p))</span></p>
+<p class="p1"><span class="s1">1-pbinom(1,n,p)</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">sum(dbinom(0:2,n,p))</span></p>
+<p class="p1"><span class="s1">pbinom(2,n,p)</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">x=0:n</span></p>
+<p class="p1"><span class="s1">px=dbinom(x,n,p)</span></p>
+<p class="p1"><span class="s1">Ex=weighted.mean(x,px)</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">Varx=weighted.mean(x*x,px)-(weighted.mean(x,px))^2</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">plot(x, px, type="h")</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"># Binomial Distribution (Quantiles &amp; Random)</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">qbinom(0.1,10,1/3)</span></p>
+<p class="p1"><span class="s1">qbinom(0.2,10,1/3)</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">qbinom(0.25,51,1/2)</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">x&lt;-rbinom(8,150,0.4)</span></p>
+<p class="p1"><span class="s1">print(x)</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"># Poisson Distribution</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">m=20</span></p>
+<p class="p1"><span class="s1">ps=0.02</span></p>
+<p class="p1"><span class="s1">lambda=m*ps</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">p1=sum(dpois(2:m,lambda))</span></p>
+<p class="p1"><span class="s1">round(1000*p1)</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">p2=dpois(2,lambda)</span></p>
+<p class="p1"><span class="s1">round(1000*p2)</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">p3=sum(dpois(0:2, lambda))</span></p>
+<p class="p1"><span class="s1">round(1000*p3)</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">x1=0:m</span></p>
+<p class="p1"><span class="s1">px1=dpois(x1,lambda)</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">plot(x1,px1,type="h")</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">Ex1=weighted.mean(x1,px1)</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">Varx1=weighted.mean(x1*x1,px1)-(weighted.mean(x1,px1))^2</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"># Poisson Distribution (Quantiles &amp; Random)</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">qpois(0.95, 2.5)</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">rpois(2,3)</span></p>
+<p class="p1"><span class="s1">rpois(6,6)</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"># Normal Distribution</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">x=seq(0,40)</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">y=dnorm(x,mean=20,sd=5)</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">plot(x,y,type='l')</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">p1=pnorm(15,mean=20,sd=5)</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">x2=seq(0,15)</span></p>
+<p class="p1"><span class="s1">y2=dnorm(x2,mean=20,sd=5)</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">polygon(c(0,x2,15),c(0,y2,0))</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"># Z-Test (Sample Mean vs Population Mean)</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">xbar=14.6</span></p>
+<p class="p1"><span class="s1">mu0=15.4</span></p>
+<p class="p1"><span class="s1">sigma=2.5</span></p>
+<p class="p1"><span class="s1">n=35</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">z=(xbar-mu0)/(sigma/sqrt(n))</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">alpha=0.05</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">zhalfalpha=qnorm(1-(alpha/2))</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">pval=2*pnorm(z)</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">if(pval&gt;alpha){</span></p>
+<p class="p1"><span class="s1">print("Accept Null hypothesis")</span></p>
+<p class="p1"><span class="s1">}else{</span></p>
+<p class="p1"><span class="s1">print("Reject Null hypothesis")</span></p>
+<p class="p1"><span class="s1">}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"># Z-Test (Sample Proportion vs Population Proportion)</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">n=640</span></p>
+<p class="p1"><span class="s1">Sprop=63/n</span></p>
+<p class="p1"><span class="s1">Pprop=0.1726</span></p>
+<p class="p1"><span class="s1">q=1-Pprop</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">z=(Sprop-Pprop)/sqrt(Pprop*q/n)</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"># Z-Test (Two Sample Means)</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">xbar=20</span></p>
+<p class="p1"><span class="s1">ybar=15</span></p>
+<p class="p1"><span class="s1">sigma=4</span></p>
+<p class="p1"><span class="s1">n1=500</span></p>
+<p class="p1"><span class="s1">n2=400</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">z=(xbar-ybar)/(sigma*sqrt((1/n1)+(1/n2)))</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">alpha=0.05</span></p>
+<p class="p1"><span class="s1">zalpha=qnorm(1-(alpha/2))</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">if(z&lt;=zalpha){</span></p>
+<p class="p1"><span class="s1">print("Accept Null hypothesis")</span></p>
+<p class="p1"><span class="s1">}else{</span></p>
+<p class="p1"><span class="s1">print("Reject Null hypothesis")</span></p>
+<p class="p1"><span class="s1">}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"># Z-Test (Two Sample Proportions)</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">p1=0.20</span></p>
+<p class="p1"><span class="s1">p2=0.185</span></p>
+<p class="p1"><span class="s1">n1=900</span></p>
+<p class="p1"><span class="s1">n2=1600</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">P=(n1*p1+n2*p2)/(n1+n2)</span></p>
+<p class="p1"><span class="s1">Q=1-P</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">z=(p1-p2)/sqrt(P*Q*((1/n1)+(1/n2)))</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">alpha=0.05</span></p>
+<p class="p1"><span class="s1">zalpha=qnorm(1-(alpha/2))</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">if(z&lt;=zalpha){</span></p>
+<p class="p1"><span class="s1">print("Accept Null hypothesis")</span></p>
+<p class="p1"><span class="s1">}else{</span></p>
+<p class="p1"><span class="s1">print("Reject Null hypothesis")</span></p>
+<p class="p1"><span class="s1">}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"># t-Test (Two Sample t-test)</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">sample1=c(19,17,15,21,16,18,16,14)</span></p>
+<p class="p1"><span class="s1">sample2=c(15,14,15,19,15,18,16,20)</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">t=t.test(sample1,sample2)</span></p>
+<p class="p1"><span class="s1">t</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"># F-Test (Variance Test)</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">sample1=c(19,17,15,21,16,18,16,14)</span></p>
+<p class="p1"><span class="s1">sample2=c(15,14,15,19,15,18,16,20)</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">f=var.test(sample1,sample2)</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">cv=f$statistic</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">tv=qf(0.95,7,7)</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">if(cv &lt;= tv){</span></p>
+<p class="p1"><span class="s1">print("Accept Ho")</span></p>
+<p class="p1"><span class="s1">}else{</span></p>
+<p class="p1"><span class="s1">print("Reject Ho")</span></p>
+<p class="p1"><span class="s1">}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"># Chi-Square Test (Goodness of Fit)</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">n=5</span></p>
+<p class="p1"><span class="s1">alpha=0.05</span></p>
+<p class="p1"><span class="s1">N=256</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">P=0.5</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">x=c(0:n)</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">obf=c(5,35,75,84,45,12)</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">exf=(dbinom(x,n,P)*256)</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">chisq&lt;-sum((obf-exf)^2/exf)</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">cv=chisq</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">tv=qchisq(1-alpha,n)</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">if(cv &lt;= tv){</span></p>
+<p class="p1"><span class="s1">print("Accept H0/Fit is good")</span></p>
+<p class="p1"><span class="s1">}else{</span></p>
+<p class="p1"><span class="s1">print("Reject H0/Fit is not good")</span></p>
+<p class="p1"><span class="s1">}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"># Chi-Square Test (Independence)</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">data&lt;-matrix(c(69,51,81,20,35,44),ncol=2,byrow=T)</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">cv=chisq.test(data)</span></p>
+<p class="p1"><span class="s1">cv</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"># Mean Median Mode (Raw Data)</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">x=c(18,19,19,19,19,20,20,20,20,20,21,21,21,21,22,23,24,27,30,36)</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">mean(x)</span></p>
+<p class="p1"><span class="s1">median(x)</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">y=x[x&lt;25]</span></p>
+<p class="p1"><span class="s1">median(y)</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">xr=table(x)</span></p>
+<p class="p1"><span class="s1">mode=which(xr==max(xr))</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"># Mean Median (Frequency Distribution)</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">x=c(0,1,2,3)</span></p>
+<p class="p1"><span class="s1">f=c(8,11,5,1)</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">y=rep(x,f)</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">mean=(sum(y))/(length(y))</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">median(y)</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"># Mean Median Mode (Grouped Data)</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">mid=seq(147.5,182.5,5)</span></p>
+<p class="p1"><span class="s1">f=c(4,6,28,58,64,30,5,5)</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">mean=(sum(mid*f))/sum(f)</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">cl=cumsum(f)</span></p>
+<p class="p1"><span class="s1">n=sum(f)</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">ml=min(which(cl&gt;=n/2))</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">h=5</span></p>
+<p class="p1"><span class="s1">f=frequency[ml]</span></p>
+<p class="p1"><span class="s1">c=cl[ml-1]</span></p>
+<p class="p1"><span class="s1">l=mid[ml]-h/2</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">median=l+(((n/2)-c)/f)*h</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">m=which(f==max(f))</span></p>
+<p class="p1"><span class="s1">fm=f[m]</span></p>
+<p class="p1"><span class="s1">f1=f[m-1]</span></p>
+<p class="p1"><span class="s1">f2=f[m+1]</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">l=mid[m]-h/2</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">mode=l+((fm-f1)/(2*fm-f1-f2))*h</span></p>
+</body>
+</html>
